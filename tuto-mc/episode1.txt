@@ -1,3 +1,4 @@
+[*] Suivre le tuto: 
 Lien pour installer l'iso de debian 10: https://cdimage.debian.org/cdimage/archive/10.12.0/amd64/iso-cd/debian-10.12.0-amd64-netinst.iso
 
 $ sudo apt update && apt upgrade

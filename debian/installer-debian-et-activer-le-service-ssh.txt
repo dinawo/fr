@@ -1,0 +1,19 @@
+[*] Suivre le tuto: 
+Lien pour installer l'iso de debian 10: https://cdimage.debian.org/cdimage/archive/10.12.0/amd64/iso-cd/debian-10.12.0-amd64-netinst.iso
+
+Installer SSH sur Debian 10
+
+$ sudo apt update && apt upgrade
+$ apt install sudo
+
+$ sudo apt install openssh-server
+$ sudo systemctl enable ssh
+$ sudo systemctl start ssh
+
+Autoriser la connexion avec l’utilisateur root
+
+$ sudo nano /etc/ssh/sshd_config
+PubkeyAuthentication yes
+
+$ sudo systemctl restart ssh
+$ sudo systemctl status ssh

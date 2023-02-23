@@ -11,6 +11,11 @@ $ wg genkey | sudo tee /etc/wireguard/privatekey | wg pubkey | sudo tee /etc/wir
 $ nano /etc/wireguard/wg0.conf
 # pouvez remplacer wg0.conf par le nom de votre choix pour votre fichier de configuration.
 
+Récuperer les clés :
+$ cd /etc/wireguard/
+$ nano privatekey
+$ nano publickey
+
 Ajouter les paramètres suivants dans le fichier de configuration :
 
 [Interface]

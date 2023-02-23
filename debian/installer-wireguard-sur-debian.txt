@@ -1,0 +1,29 @@
+Pour installer WireGuard sur Debian, vous pouvez suivre les étapes suivantes :
+
+Mettre à jour les dépôts de votre système :
+
+$ apt update && apt upgrade
+
+$ apt install wireguard
+
+$ wg genkey | sudo tee /etc/wireguard/privatekey | wg pubkey | sudo tee /etc/wireguard/publickey
+
+$ nano /etc/wireguard/wg0.conf
+# pouvez remplacer wg0.conf par le nom de votre choix pour votre fichier de configuration.
+
+Ajouter les paramètres suivants dans le fichier de configuration :
+
+[Interface]
+Address = 10.0.0.1/24
+PrivateKey = (la clé privée que vous avez générée à l'étape 3)
+ListenPort = (le port que vous souhaitez utiliser pour les connexions entrantes)
+
+[Peer]
+PublicKey = (la clé publique de votre client)
+AllowedIPs = 10.0.0.2/32
+Notez que 10.0.0.1/24 est l'adresse IP du serveur et 10.0.0.2/32 est l'adresse IP du client.
+
+
+$ systemctl enable wg-quick@wg0.service
+$ systemctl start wg-quick@wg0.service
+Vous devriez maintenant avoir WireGuard installé et fonctionnel sur votre serveur Debian. Vous pouvez répéter les étapes 3 à 5 pour configurer des clients supplémentaires.

@@ -6,14 +6,14 @@ Installer SSH sur Debian 10
 $ sudo apt update && apt upgrade
 $ apt install sudo
 
-$ sudo apt install openssh-server
-$ sudo systemctl enable ssh
-$ sudo systemctl start ssh
+$ apt install openssh-server
+$ systemctl enable ssh
+$ systemctl start ssh
 
 Autoriser la connexion avec l’utilisateur root
 
-$ sudo nano /etc/ssh/sshd_config
-PubkeyAuthentication yes
+$ nano /etc/ssh/sshd_config
+PermiRootLogin yes
 
-$ sudo systemctl restart ssh
-$ sudo systemctl status ssh
+$ systemctl restart ssh
+$ systemctl status ssh
